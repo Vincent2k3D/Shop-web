@@ -1,24 +1,34 @@
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Header from "./components/header";
-import Footer from "./components/footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Contact from "./pages/Contact";
-import Hotline from "./pages/Hotline";
+import Details from "./pages/Details";
+import Checkout from "./pages/Checkout";
+import Dashboard from "./pages/Dashboard";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/hotline" element={<Hotline />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <>
+      <Toaster position="top-right" reverseOrder={false} />
+      <Router>
+        <ScrollToTop />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/details" element={<Details />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </>
   );
 };
 
